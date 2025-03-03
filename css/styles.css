@@ -80,11 +80,30 @@ img {
   text-decoration: none;
   padding-top: 75px;
   padding-bottom: 75px;
+  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
 .nav-link:focus {
   color: tomato;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: tomato;
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after {
+  opacity: 1;
 }
 
 .header-button {
@@ -116,9 +135,6 @@ img {
 .hero-container {
   display: flex;
   gap: 144px;
-}
-
-.hero-description-cont {
 }
 
 .hero-title {
@@ -154,8 +170,6 @@ img {
   color: tomato;
 }
 
-.hero-image {
-}
 /* #endregion hero-section */
 
 /* #region skills section */
@@ -186,6 +200,7 @@ img {
 .skills-list-item:first-child {
   padding-bottom: 154px;
   height: 947px;
+  position: relative;
 }
 
 .skills-list-item:nth-child(4n + 4) {
@@ -198,16 +213,12 @@ img {
   height: 338px;
   padding: 32px 18px;
   background-color: #f5f5f5;
-  margin-left: auto;
-  /* align-self: baseline; */
-}
-
-.skills-item-container {
+  position: absolute;
+  transform: translate(456px, 609px);
 }
 
 .skills-image {
   margin-bottom: 24px;
-  /* background-color: transparent; */
   background-color: #f5f5f5;
 }
 
@@ -349,7 +360,6 @@ img {
   font-size: 18px;
   text-align: center;
   color: #546269;
-  margin-bottom: 30px;
 }
 
 /* #endregion pricing section */
@@ -437,5 +447,187 @@ img {
   font-size: 24px;
   letter-spacing: 0.02em;
   color: #8f95a5;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-nav-link:hover,
+.footer-nav-link:focus {
+  color: tomato;
 }
 /* #endregion footer */
+
+/* #region modal */
+.backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(37, 18, 18, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  min-height: 800px;
+  padding: 40px 40px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+  line-height: 0;
+  border: 0;
+  background-color: transparent;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-button:focus,
+.modal-close-button:hover {
+  fill: tomato;
+}
+
+.modal-text {
+  text-align: center;
+  font-weight: 600;
+  font-size: 30px;
+  color: #263238;
+  margin-bottom: 40px;
+}
+
+.modal-form-input-cont {
+  position: relative;
+}
+.modal-form-label {
+  display: block;
+  font-weight: 500;
+  font-size: 20px;
+  color: #263238;
+  margin-bottom: 10px;
+}
+
+.modal-form-input {
+  border: 1px solid #8f95a5;
+  border-radius: 10px;
+  width: 100%;
+  height: 70px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #263238;
+  outline: transparent;
+  background-color: transparent;
+  margin-bottom: 20px;
+  padding-left: 80px;
+}
+
+.modal-form-input:focus {
+  border-color: tomato;
+}
+
+.modal-form-input::placeholder {
+  font-weight: 400;
+  font-size: 24px;
+  color: #8f95a5;
+}
+
+.modal-input-icon {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  fill: #263238;
+}
+
+.modal-form-input:focus + .modal-input-icon {
+  fill: tomato;
+}
+
+.modal-form-input.textarea {
+  resize: none;
+  min-height: 140px;
+  padding: 20px 20px;
+}
+
+.modal-form-cont-checkbox {
+  margin-bottom: 20px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.custom-checkbox {
+  border: 1px solid #8f95a5;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: transparent;
+}
+.checkbox:checked + .modal-form-label > .custom-checkbox {
+  background-color: tomato;
+  fill: #fff;
+  border: transparent;
+}
+
+.modal-link {
+  font-weight: 800;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
+.modal-link:focus,
+.modal-link:hover {
+  color: tomato;
+}
+
+.modal-subscribe-button {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  min-width: 312px;
+  height: 70px;
+  background: #263238;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-subscribe-button:focus,
+.modal-subscribe-button:hover {
+  color: tomato;
+}
+
+/* #endregion modal */

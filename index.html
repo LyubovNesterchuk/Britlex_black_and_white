@@ -248,7 +248,7 @@
               />
               <h3 class="pricing-subtitle">Personal Tuition</h3>
               <p class="pricing-description">
-                Online one-to-one English tutoring – enjoy our first session for
+                Online one-to-one English tutoring - enjoy our first session for
                 only $1
               </p>
               <div class="price">
@@ -277,7 +277,9 @@
                 placeholder="Enter Your E-mail"
                 type="email"
               />
-              <button class="contact-button" type="submit">Subscribe</button>
+              <button class="contact-button" type="submit" data-modal-open>
+                Subscribe
+              </button>
             </form>
           </div>
           <img src="./images/contact.jpg" alt="boy" width="425" height="430" />
@@ -291,13 +293,117 @@
         <a class="logo" href="">Brit<span class="logo-part">lex</span></a>
         <nav>
           <ul class="footer-vav-list">
-            <li><a class="footer-nav-link" href="">Terms and Conditions</a></li>
-            <li><a class="footer-nav-link" href="">Privacy Policy</a></li>
-            <li><a class="footer-nav-link" href="">Cookie Policy</a></li>
+            <li>
+              <a class="footer-nav-link" href="#">Terms and Conditions</a>
+            </li>
+            <li><a class="footer-nav-link" href="#">Privacy Policy</a></li>
+            <li><a class="footer-nav-link" href="#">Cookie Policy</a></li>
           </ul>
         </nav>
       </div>
     </footer>
     <!-- #endregion footer -->
+
+    <!-- #region modal -->
+    <div class="backdrop is-open" data-modal>
+      <div class="modal">
+        <button class="modal-close-button" type="button" data-modal-close>
+          <svg class="modal-close-icone" width="24" height="24">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+        <p class="modal-text">Let's learn language</p>
+        <form class="modal-form">
+          <div class="modal-form-field">
+            <label class="modal-form-label" for="user-name"
+              >Enter your full name</label
+            >
+            <div class="modal-form-input-cont">
+              <input
+                class="modal-form-input"
+                id="user-name"
+                name="user-name"
+                type="text"
+                placeholder="Lyubov Nesterchuk"
+                required
+              /><svg class="modal-input-icon" width="40" height="40">
+                <use href="./images/icons.svg#icon-person"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="modal-form-field">
+            <label class="modal-form-label" for="user-email"
+              >Enter your e-mail</label
+            >
+            <div class="modal-form-input-cont">
+              <input
+                class="modal-form-input"
+                id="user-email"
+                name="user-email"
+                type="email"
+                placeholder="test@gmail.com"
+                required
+              /><svg class="modal-input-icon" width="40" height="40">
+                <use href="./images/icons.svg#icon-email"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="modal-form-field">
+            <label class="modal-form-label" for="user-tel"
+              >Enter your phone number</label
+            >
+            <div class="modal-form-input-cont">
+              <input
+                class="modal-form-input"
+                id="user-tel"
+                name="user-tel"
+                type="tel"
+                placeholder="xxx-xxx-xx-xx"
+                required
+              /><svg class="modal-input-icon" width="40" height="40">
+                <use href="./images/icons.svg#icon-phone"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="modal-form-input-cont">
+            <label class="modal-form-label" for="user-comment"
+              >Enter your questions</label
+            >
+            <textarea
+              class="modal-form-input textarea"
+              name="user-comment"
+              id="user-comment"
+              placeholder="Enter your questions"
+            ></textarea>
+          </div>
+
+          <div class="modal-form-cont-checkbox">
+            <input
+              class="checkbox visually-hidden"
+              type="checkbox"
+              value="true"
+              id="user-privacy"
+            />
+            <label class="modal-form-label" for="user-privacy"
+              ><span class="custom-checkbox">
+                <svg class="modal-checkbox-icon" width="20" height="20">
+                  <use href="./images/icons.svg#icon-check"></use></svg
+              ></span>
+              I accept the terms and condition of the
+              <a class="modal-link" href="#">privacy policy</a>
+            </label>
+          </div>
+
+          <button class="modal-subscribe-button" type="submit">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- #endregion modal -->
+    <script src="./js/modal.js"></script>
   </body>
 </html>
